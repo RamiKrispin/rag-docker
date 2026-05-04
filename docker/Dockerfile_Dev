@@ -1,4 +1,4 @@
-FROM docker.io/rkrispin/python-base:0.0.1
+FROM docker.io/rkrispin/python-base:0.0.4
 
 # Arguments
 ARG PYTHON_VER="3.11"
