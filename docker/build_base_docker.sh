@@ -4,7 +4,7 @@
 user_name=rkrispin
 image_label=python-base
 tag=0.0.1
-quarto_ver="1.8.24"
+quarto_ver="1.9.37"
 dockerfile="Dockerfile_Base"
 
 image_name="rkrispin/$image_label:$tag"

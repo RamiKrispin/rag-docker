@@ -2,12 +2,12 @@
 
 # Image settings
 user_name=rkrispin
-project_name="template"
+project_name="rag-docker"
 image_label=python-dev-$project_name
 tag=0.0.1
 python_ver=3.11
 venv_name="python-$python_ver-dev"
-ruff_ver="0.12.0"
+ruff_ver="0.15.12"
 dockerfile="Dockerfile_Dev"
 image_name="rkrispin/$image_label:$tag"
 
