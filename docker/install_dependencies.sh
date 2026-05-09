@@ -20,6 +20,12 @@ apt-get update && apt-get install -y --no-install-recommends \
    unzip \
    fontconfig \
    software-properties-common \
+   libxcb1 \
+   libgl1-mesa-glx \
+   libglib2.0-0 \
+   libsm6 \
+   libxext6 \
+   libxrender1 \
    && rm -rf /var/lib/apt/lists/*
 
 # Installing oh my zsh

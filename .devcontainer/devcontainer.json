@@ -1,6 +1,11 @@
 {
-    "name": "python-dev",
-    "image": "docker.io/rkrispin/python-dev-rag-docker:0.0.1",
+    "name": "RAG Docker Dev",
+    "dockerComposeFile": [
+        "../docker-compose.yaml"
+    ],
+    "service": "python",
+    "shutdownAction": "none",
+    "workspaceFolder": "/workspace/",
     "customizations": {
         "vscode": {
             "settings": {
@@ -25,6 +30,7 @@
                 "streetsidesoftware.code-spell-checker",
                 "tamasfe.even-better-toml",
                 "aaron-bond.better-comments",
+                "mermaidchart.vscode-mermaid-chart",
                 //Code
                 "oderwat.indent-rainbow",
                 // Data
@@ -32,25 +38,20 @@
                 "ms-toolsai.datawrangler",
                 // Git
                 "mhutchie.git-graph",
-                // Misc
-                "streetsidesoftware.code-spell-checker",
                 // Code
                 "continue.continue"
-
             ]
         }
     },
-    // Optional, local zsh history:
+    // Optional, local zsh history (requires: touch ~/.zsh_history_dev):
     "mounts": [
         "source=${localEnv:HOME}/.zsh_history_dev,target=/root/.zsh_history,type=bind,consistency=cache"
     ],
-    // Optional set environment variables:
     "remoteEnv": {
-        "MY_VAR": "${localEnv:MY_VAR:test_var}"
-    },
-    // Optional load environment variables from a file:
-    "runArgs": [
-        "--env-file",
-        ".devcontainer/devcontainer.env"
-    ]
+        "OPENAI_API_KEY": "${localEnv:OPENAI_API_KEY:key_is_missing}",
+        "ANTHROPIC_API_KEY": "${localEnv:ANTHROPIC_API_KEY:key_is_missing}",
+        "GEMINI_API_KEY": "${localEnv:GEMINI_API_KEY:key_is_missing}",
+        "LANGSMITH_API_KEY": "${localEnv:LANGSMITH_API_KEY:key_is_missing}",
+        "CHROMA_DATA_PATH": "${localEnv:CHROMA_DATA_PATH:./chroma_data}"
+    }
 }

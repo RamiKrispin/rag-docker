@@ -1,0 +1,18 @@
+# ChromaDB persistent data
+chroma_data/
+
+# Environment files (use environment variables, not .env files)
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+
+# IDE
+.idea/
+
+# OS
+.DS_Store

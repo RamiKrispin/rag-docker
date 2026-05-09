@@ -1,0 +1,56 @@
+providers:
+  openai:
+    api_key_env: "OPENAI_API_KEY"
+    models:
+      embedding:
+        name: "text-embedding-3-small"
+        dimensions: 1536
+      chat:
+        name: "gpt-4o"
+        temperature: 0.0
+        max_tokens: 2048
+
+  anthropic:
+    api_key_env: "ANTHROPIC_API_KEY"
+    models:
+      chat:
+        name: "claude-sonnet-4-20250514"
+        temperature: 0.0
+        max_tokens: 2048
+
+  gemini:
+    api_key_env: "GEMINI_API_KEY"
+    models:
+      embedding:
+        name: "text-embedding-004"
+        dimensions: 768
+      chat:
+        name: "gemini-2.5-flash"
+        temperature: 0.0
+        max_tokens: 2048
+
+active:
+  embedding_provider: "openai"
+  chat_provider: "openai"
+
+chunking:
+  method: "recursive"
+  chunk_size: 1000
+  chunk_overlap: 200
+  keep_tables_intact: true
+
+retrieval:
+  top_k: 5
+  rerank: true
+  rerank_model: "cross-encoder"
+  score_threshold: 0.3
+
+chromadb:
+  host: "chromadb"
+  port: 8000
+  collection_name: "financial_reports"
+
+observability:
+  enabled: false
+  provider: "langsmith"
+  project_name: "rag-docker"

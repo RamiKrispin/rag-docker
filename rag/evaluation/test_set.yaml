@@ -1,0 +1,96 @@
+# RAG Evaluation Test Set
+# Questions with expected answers and relevant source pages.
+# Used by the evaluation framework to benchmark retrieval and generation quality.
+
+questions:
+  - id: q1
+    question: "What was the total net revenue for the quarter?"
+    expected_keywords:
+      - "revenue"
+      - "net"
+    expected_source_type: "table"
+    category: "factual_numeric"
+
+  - id: q2
+    question: "What were the total operating expenses?"
+    expected_keywords:
+      - "operating"
+      - "expenses"
+    expected_source_type: "table"
+    category: "factual_numeric"
+
+  - id: q3
+    question: "What were the main risk factors mentioned in the filing?"
+    expected_keywords:
+      - "risk"
+      - "factors"
+    expected_source_type: "text"
+    category: "factual_narrative"
+
+  - id: q4
+    question: "How did revenue change compared to the prior year period?"
+    expected_keywords:
+      - "increase"
+      - "decrease"
+      - "change"
+      - "compared"
+    expected_source_type: "text"
+    category: "comparative"
+
+  - id: q5
+    question: "What was the net income or net loss for the quarter?"
+    expected_keywords:
+      - "net income"
+      - "net loss"
+    expected_source_type: "table"
+    category: "factual_numeric"
+
+  - id: q6
+    question: "What is the company's cash and cash equivalents balance?"
+    expected_keywords:
+      - "cash"
+      - "equivalents"
+    expected_source_type: "table"
+    category: "factual_numeric"
+
+  - id: q7
+    question: "What were the major product or service segments?"
+    expected_keywords:
+      - "segment"
+      - "product"
+      - "service"
+    expected_source_type: "text"
+    category: "factual_narrative"
+
+  - id: q8
+    question: "Were there any significant legal proceedings disclosed?"
+    expected_keywords:
+      - "legal"
+      - "proceedings"
+      - "litigation"
+    expected_source_type: "text"
+    category: "factual_narrative"
+
+  - id: q9
+    question: "What was the earnings per share (basic and diluted)?"
+    expected_keywords:
+      - "earnings per share"
+      - "EPS"
+      - "basic"
+      - "diluted"
+    expected_source_type: "table"
+    category: "factual_numeric"
+
+  - id: q10
+    question: "Compare the revenue figures across the available quarterly reports."
+    expected_keywords:
+      - "revenue"
+      - "quarter"
+      - "compare"
+    expected_source_type: "table"
+    category: "multi_document"
+
+evaluation_config:
+  top_k_values: [3, 5, 10]
+  chunking_methods: ["recursive", "by_title"]
+  providers: ["openai"]

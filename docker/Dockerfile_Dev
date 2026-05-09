@@ -13,6 +13,12 @@ ENV RUFF_VER=$RUFF_VER
 # Set Python environment
 COPY install_uv.sh requirements.txt settings/
 RUN bash ./settings/install_uv.sh $VENV_NAME $PYTHON_VER $RUFF_VER
+
+# Pre-download Docling models (avoids runtime HuggingFace download)
+RUN /opt/$VENV_NAME/bin/python -c "\
+from docling.document_converter import DocumentConverter; \
+DocumentConverter()" || true
+
 RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/root/.zsh_history && export HISTIGNORE='ls'" \
     && echo "export HISTFILESIZE=1000" >> "/root/.bashrc"\
     && echo "$SNIPPET" >> "/root/.zshrc"
