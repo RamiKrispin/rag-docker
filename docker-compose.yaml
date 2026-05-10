@@ -4,7 +4,7 @@ networks:
 
 services:
   python:
-    image: docker.io/rkrispin/python-dev-rag-docker:0.0.1
+    image: docker.io/rkrispin/python-dev-rag-docker:0.0.2
     volumes:
       - .:/workspace:cached
       - ${HF_HOME:-~/.cache/huggingface}:/root/.cache/huggingface
