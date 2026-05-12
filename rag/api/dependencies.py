@@ -2,7 +2,7 @@ from functools import lru_cache
 
 from rag.config import Settings, load_config
 from rag.ingestion.embedder import get_embedder
-from rag.ingestion.store import ChromaStore
+from rag.store import ChromaStore
 
 
 @lru_cache

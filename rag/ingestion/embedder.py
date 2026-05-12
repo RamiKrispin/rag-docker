@@ -1,17 +1,30 @@
+import logging
 import time
+from typing import Any
 
-from langchain_openai import OpenAIEmbeddings
+from langchain_core.embeddings import Embeddings
 
 from rag.config import Settings
 
+__all__ = ["get_embedder", "embed_documents_batched"]
 
-def get_embedder(config: Settings):
+logger = logging.getLogger("rag")
+
+
+def get_embedder(config: Settings) -> Embeddings:
     provider_name = config.active.embedding_provider
     provider = config.get_embedding_provider()
     model_config = provider.models.embedding
 
     if provider_name == "openai":
         api_key = config.resolve_api_key("openai")
+        try:
+            from langchain_openai import OpenAIEmbeddings
+        except ImportError:
+            raise ImportError(
+                "langchain-openai is required for OpenAI "
+                "embeddings. Install with: pip install langchain-openai"
+            )
         return OpenAIEmbeddings(
             model=model_config.name,
             openai_api_key=api_key,
@@ -39,7 +52,7 @@ def get_embedder(config: Settings):
 
 
 def embed_documents_batched(
-    embedder,
+    embedder: Embeddings,
     texts: list[str],
     batch_size: int = 100,
 ) -> list[list[float]]:
@@ -56,11 +69,11 @@ def embed_documents_batched(
         elapsed = time.time() - start
         rate = done / elapsed if elapsed > 0 else 0
         eta = (total - done) / rate if rate > 0 else 0
-        print(
-            f"  Embedded {done}/{total} chunks "
+        logger.info(
+            f"Embedded {done}/{total} chunks "
             f"({done * 100 // total}%) "
             f"- {elapsed:.1f}s elapsed, ~{eta:.0f}s remaining"
         )
 
-    print(f"Done: {total} chunks in {time.time() - start:.1f}s")
+    logger.info(f"Done: {total} chunks in {time.time() - start:.1f}s")
     return all_vectors

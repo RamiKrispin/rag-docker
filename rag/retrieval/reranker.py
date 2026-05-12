@@ -1,9 +1,9 @@
+import functools
 from dataclasses import replace
 
 from rag.retrieval.retriever import RetrievedChunk
 
-
-_cross_encoder_model = None
+__all__ = ["rerank"]
 
 
 def rerank(
@@ -27,27 +27,27 @@ def rerank(
         )
 
 
+@functools.lru_cache(maxsize=1)
+def _get_cross_encoder():
+    from sentence_transformers import CrossEncoder
+    return CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
+
+
 def _rerank_cross_encoder(
     question: str,
     chunks: list[RetrievedChunk],
     top_k: int,
 ) -> list[RetrievedChunk]:
     try:
-        from sentence_transformers import CrossEncoder
+        model = _get_cross_encoder()
     except ImportError:
         raise ImportError(
             "sentence-transformers is required for cross-encoder "
             "reranking. Install with: pip install sentence-transformers"
         )
 
-    global _cross_encoder_model
-    if _cross_encoder_model is None:
-        _cross_encoder_model = CrossEncoder(
-            "cross-encoder/ms-marco-MiniLM-L-6-v2"
-        )
-
     pairs = [[question, chunk.content] for chunk in chunks]
-    scores = _cross_encoder_model.predict(pairs)
+    scores = model.predict(pairs)
 
     reranked = [
         replace(chunk, score=float(score))

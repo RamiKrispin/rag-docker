@@ -6,7 +6,12 @@ import yaml
 from pydantic import BaseModel, ConfigDict, field_validator, model_validator
 
 
-_DEFAULT_CONFIG = Path(__file__).parent.parent / "config" / "settings.yaml"
+_DEFAULT_CONFIG = Path(
+    os.environ.get(
+        "RAG_CONFIG_PATH",
+        Path(__file__).parent.parent / "config" / "settings.yaml",
+    )
+)
 
 
 class ModelConfig(BaseModel):

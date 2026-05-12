@@ -1,7 +1,10 @@
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Any
 
 from docling.document_converter import DocumentConverter
+
+__all__ = ["ParsedElement", "parse_pdf"]
 
 
 @dataclass
@@ -10,7 +13,7 @@ class ParsedElement:
     type: str  # "text", "table", "heading"
     page: int
     section_title: str = ""
-    metadata: dict = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 def parse_pdf(path: str | Path) -> list[ParsedElement]:

@@ -4,6 +4,8 @@ from rag.config import Settings
 from rag.ingestion.embedder import get_embedder
 from rag.ingestion.store import ChromaStore
 
+__all__ = ["RetrievedChunk", "retrieve"]
+
 
 @dataclass
 class RetrievedChunk:

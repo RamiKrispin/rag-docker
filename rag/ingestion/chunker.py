@@ -1,6 +1,9 @@
 from dataclasses import dataclass, field
+from typing import Any
 
 from rag.ingestion.pdf_parser import ParsedElement
+
+__all__ = ["Chunk", "chunk_elements"]
 
 
 @dataclass
@@ -10,7 +13,7 @@ class Chunk:
     page: int
     section_title: str = ""
     chunk_index: int = 0
-    metadata: dict = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
 
 def chunk_elements(

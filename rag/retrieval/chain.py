@@ -5,6 +5,8 @@ from rag.config import Settings
 from rag.retrieval.retriever import RetrievedChunk, retrieve
 from rag.retrieval.reranker import rerank
 
+__all__ = ["QueryResponse", "Source", "QueryMetadata", "query_rag"]
+
 
 @dataclass
 class Source:
