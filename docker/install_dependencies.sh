@@ -21,6 +21,13 @@ apt-get update && apt-get install -y --no-install-recommends \
    fontconfig \
    software-properties-common \
    libxcb1 \
+   libxcb-xinerama0 \
+   libxcb-cursor0 \
+   libxcb-shm0 \
+   libxcb-icccm4 \
+   libxcb-keysyms1 \
+   libxcb-render-util0 \
+   libxcb-image0 \
    libgl1-mesa-glx \
    libglib2.0-0 \
    libsm6 \

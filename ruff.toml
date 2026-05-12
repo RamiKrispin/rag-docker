@@ -7,9 +7,5 @@ extend-select = ["E501"]
 
 
 [format]
-<<<<<<< HEAD
-quotes-style = "double"
-=======
 quote-style = "double"
->>>>>>> c04e987 (init commit)
 indent-style = "space"

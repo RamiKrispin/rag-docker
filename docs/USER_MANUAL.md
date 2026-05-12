@@ -41,7 +41,7 @@ export CHROMA_DATA_PATH="./chroma_data"
 docker compose up -d
 
 # Verify ChromaDB is healthy
-curl http://localhost:8000/api/v1/heartbeat
+curl http://localhost:8000/api/v2/heartbeat
 
 # Start the FastAPI server (inside the container)
 uvicorn rag.api.main:app --host 0.0.0.0 --port 8080 --reload

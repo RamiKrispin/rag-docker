@@ -1,3 +1,5 @@
+import time
+
 from langchain_openai import OpenAIEmbeddings
 
 from rag.config import Settings
@@ -34,3 +36,31 @@ def get_embedder(config: Settings):
             f"Unsupported embedding provider: '{provider_name}'. "
             f"Supported: openai, gemini"
         )
+
+
+def embed_documents_batched(
+    embedder,
+    texts: list[str],
+    batch_size: int = 100,
+) -> list[list[float]]:
+    total = len(texts)
+    all_vectors: list[list[float]] = []
+    start = time.time()
+
+    for i in range(0, total, batch_size):
+        batch = texts[i : i + batch_size]
+        vectors = embedder.embed_documents(batch)
+        all_vectors.extend(vectors)
+
+        done = min(i + batch_size, total)
+        elapsed = time.time() - start
+        rate = done / elapsed if elapsed > 0 else 0
+        eta = (total - done) / rate if rate > 0 else 0
+        print(
+            f"  Embedded {done}/{total} chunks "
+            f"({done * 100 // total}%) "
+            f"- {elapsed:.1f}s elapsed, ~{eta:.0f}s remaining"
+        )
+
+    print(f"Done: {total} chunks in {time.time() - start:.1f}s")
+    return all_vectors

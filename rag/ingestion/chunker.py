@@ -183,7 +183,10 @@ def _chunk_semantic(
                     chunk_index=chunk_idx,
                 ))
                 chunk_idx += 1
-            buffer = elem.content
+                overlap_text = buffer.strip()[-chunk_overlap:]
+                buffer = overlap_text + "\n\n" + elem.content
+            else:
+                buffer = elem.content
             buffer_page = elem.page
             buffer_section = elem.section_title
 

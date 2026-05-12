@@ -11,6 +11,7 @@ langchain-community==0.4.1
 langchain-text-splitters==1.1.2
 langchain-openai==1.2.1
 langchain-chroma==1.1.0
+opencv-python-headless>=4.10.0
 docling==2.93.0
 fastapi==0.115.0
 uvicorn==0.30.0
