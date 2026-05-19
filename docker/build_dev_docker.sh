@@ -4,7 +4,7 @@
 user_name=rkrispin
 project_name="rag-docker"
 image_label=python-dev-$project_name
-tag=0.0.2
+tag=0.0.3
 python_ver=3.11
 venv_name="python-$python_ver-dev"
 ruff_ver="0.15.12"

@@ -38,7 +38,7 @@ services:
       - rag-docker
 
   phoenix:
-    image: arizephoenix/phoenix:4.6.0
+    image: arizephoenix/phoenix:latest
     profiles:
       - observability
     ports:

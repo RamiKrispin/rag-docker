@@ -4,6 +4,10 @@
         "../docker-compose.yaml"
     ],
     "service": "python",
+    "runServices": [
+        "python",
+        "phoenix"
+    ],
     "shutdownAction": "none",
     "workspaceFolder": "/workspace/",
     "customizations": {
@@ -31,6 +35,7 @@
                 "tamasfe.even-better-toml",
                 "aaron-bond.better-comments",
                 "mermaidchart.vscode-mermaid-chart",
+                "tomoki1207.pdf",
                 //Code
                 "oderwat.indent-rainbow",
                 // Data

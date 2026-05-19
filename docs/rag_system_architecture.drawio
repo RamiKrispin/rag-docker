@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="rag-architecture" name="RAG System Architecture">
-        <mxGraphModel dx="1437" dy="654" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1839" dy="594" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -355,7 +355,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="rag-high-level" name="RAG System Architecture - High Level">
-        <mxGraphModel dx="1437" dy="654" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="800" math="0" shadow="0">
+        <mxGraphModel dx="1839" dy="594" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="800" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -532,195 +532,145 @@
         </mxGraphModel>
     </diagram>
     <diagram id="rag-conceptual" name="RAG Design Architecture">
-        <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+        <mxGraphModel dx="1839" dy="594" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-
-                <!-- Title -->
                 <mxCell id="c-title" value="Retrieval-Augmented Generation (RAG) — Design Architecture" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=18;fontStyle=1;fontColor=#1a1a2e;" parent="1" vertex="1">
                     <mxGeometry x="320" y="15" width="520" height="35" as="geometry"/>
                 </mxCell>
-
-                <!-- ═══════════════════════════════════════ -->
-                <!-- SECTION LABELS -->
-                <!-- ═══════════════════════════════════════ -->
                 <mxCell id="c-label-ingest" value="INGESTION PIPELINE (offline / batch)" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontStyle=1;fontColor=#2E7D32;decoration=underline;" parent="1" vertex="1">
                     <mxGeometry x="60" y="60" width="320" height="25" as="geometry"/>
                 </mxCell>
-
                 <mxCell id="c-label-query" value="QUERY PIPELINE (online / real-time)" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontStyle=1;fontColor=#1565C0;decoration=underline;" parent="1" vertex="1">
                     <mxGeometry x="60" y="460" width="320" height="25" as="geometry"/>
                 </mxCell>
-
-                <!-- ═══════════════════════════════════════ -->
-                <!-- INGESTION PIPELINE -->
-                <!-- ═══════════════════════════════════════ -->
-
-                <!-- Document Sources -->
                 <mxCell id="c-docs" value="Document Sources" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F57F17;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#F57F17;shadow=1;verticalAlign=top;spacingTop=5;arcSize=8;" parent="1" vertex="1">
                     <mxGeometry x="60" y="100" width="180" height="130" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-docs-list" value="PDFs&#xa;Web pages&#xa;Databases&#xa;Text files&#xa;APIs" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#5D4037;" parent="1" vertex="1">
                     <mxGeometry x="80" y="135" width="140" height="85" as="geometry"/>
                 </mxCell>
-
-                <!-- Document Parsing -->
                 <mxCell id="c-parse" value="Document&#xa;Parsing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#2E7D32;shadow=1;verticalAlign=middle;" parent="1" vertex="1">
                     <mxGeometry x="310" y="120" width="150" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-parse-desc" value="Extract text, tables,&#xa;metadata from raw docs" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;fontColor=#546E7A;" parent="1" vertex="1">
                     <mxGeometry x="310" y="200" width="150" height="30" as="geometry"/>
                 </mxCell>
-
-                <!-- Chunking -->
                 <mxCell id="c-chunk" value="Chunking /&#xa;Splitting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#2E7D32;shadow=1;verticalAlign=middle;" parent="1" vertex="1">
                     <mxGeometry x="530" y="120" width="150" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-chunk-desc" value="Split into smaller passages&#xa;with overlap for context" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;fontColor=#546E7A;" parent="1" vertex="1">
                     <mxGeometry x="530" y="200" width="150" height="30" as="geometry"/>
                 </mxCell>
-
-                <!-- Embedding Model (Ingestion) -->
                 <mxCell id="c-embed-ingest" value="Embedding&#xa;Model" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#6A1B9A;shadow=1;verticalAlign=middle;" parent="1" vertex="1">
                     <mxGeometry x="750" y="120" width="150" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-embed-ingest-desc" value="Convert text chunks&#xa;into vector embeddings" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;fontColor=#546E7A;" parent="1" vertex="1">
                     <mxGeometry x="750" y="200" width="150" height="30" as="geometry"/>
                 </mxCell>
-
-                <!-- Vector Store (write) -->
                 <mxCell id="c-vectorstore" value="Vector Store" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#DCEDC8;strokeColor=#33691E;strokeWidth=2;fontSize=14;fontStyle=1;fontColor=#33691E;shadow=1;size=15;" parent="1" vertex="1">
                     <mxGeometry x="1000" y="100" width="160" height="110" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-vectorstore-desc" value="Indexed embeddings +&#xa;document metadata&#xa;(similarity search)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;fontColor=#546E7A;" parent="1" vertex="1">
                     <mxGeometry x="1000" y="215" width="160" height="40" as="geometry"/>
                 </mxCell>
-
-                <!-- Ingestion flow arrows -->
                 <mxCell id="c-ie1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2E7D32;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="c-docs" target="c-parse" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-ie1-label" value="raw documents" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=9;fontColor=#2E7D32;labelBackgroundColor=#FFFFFF;" parent="c-ie1" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+                    <mxGeometry x="-0.1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
                 </mxCell>
-
                 <mxCell id="c-ie2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2E7D32;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="c-parse" target="c-chunk" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-ie2-label" value="parsed text" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=9;fontColor=#2E7D32;labelBackgroundColor=#FFFFFF;" parent="c-ie2" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+                    <mxGeometry x="-0.1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
                 </mxCell>
-
                 <mxCell id="c-ie3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2E7D32;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="c-chunk" target="c-embed-ingest" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-ie3-label" value="text chunks" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=9;fontColor=#2E7D32;labelBackgroundColor=#FFFFFF;" parent="c-ie3" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+                    <mxGeometry x="-0.1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
                 </mxCell>
-
                 <mxCell id="c-ie4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#33691E;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="c-embed-ingest" target="c-vectorstore" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-ie4-label" value="vectors + metadata" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=9;fontColor=#33691E;labelBackgroundColor=#FFFFFF;" parent="c-ie4" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+                    <mxGeometry x="-0.1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
                 </mxCell>
-
-                <!-- ═══════════════════════════════════════ -->
-                <!-- DIVIDER -->
-                <!-- ═══════════════════════════════════════ -->
                 <mxCell id="c-divider" value="" style="shape=line;strokeColor=#BDBDBD;strokeWidth=1.5;dashed=1;dashPattern=5 5;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="60" y="280" width="1120" height="10" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-divider-note" value="Knowledge base indexed — ready for queries" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontStyle=2;fontColor=#9E9E9E;" parent="1" vertex="1">
                     <mxGeometry x="440" y="285" width="260" height="20" as="geometry"/>
                 </mxCell>
-
-                <!-- ═══════════════════════════════════════ -->
-                <!-- Shared Vector Store (center anchor) -->
-                <!-- ═══════════════════════════════════════ -->
                 <mxCell id="c-vectorstore-query" value="Vector Store" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#DCEDC8;strokeColor=#33691E;strokeWidth=2;fontSize=14;fontStyle=1;fontColor=#33691E;shadow=1;size=15;" parent="1" vertex="1">
                     <mxGeometry x="1000" y="370" width="160" height="110" as="geometry"/>
                 </mxCell>
-
-                <!-- Dotted line linking the two vector store representations -->
                 <mxCell id="c-vs-link" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#33691E;strokeWidth=1.5;dashed=1;dashPattern=3 3;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="c-vectorstore" target="c-vectorstore-query" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-vs-link-label" value="same store" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=9;fontStyle=2;fontColor=#33691E;labelBackgroundColor=#FFFFFF;" parent="c-vs-link" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+                    <mxGeometry x="-0.1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
                 </mxCell>
-
-                <!-- ═══════════════════════════════════════ -->
-                <!-- QUERY PIPELINE -->
-                <!-- ═══════════════════════════════════════ -->
-
-                <!-- User Question -->
                 <mxCell id="c-user" value="User&#xa;Question" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=13;fontStyle=1;shadow=1;" parent="1" vertex="1">
                     <mxGeometry x="60" y="500" width="140" height="70" as="geometry"/>
                 </mxCell>
-
-                <!-- Query Embedding -->
                 <mxCell id="c-embed-query" value="Embedding&#xa;Model" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#6A1B9A;shadow=1;verticalAlign=middle;" parent="1" vertex="1">
                     <mxGeometry x="280" y="495" width="150" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-embed-query-desc" value="Same model used during&#xa;ingestion for consistency" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;fontColor=#546E7A;" parent="1" vertex="1">
                     <mxGeometry x="280" y="575" width="150" height="30" as="geometry"/>
                 </mxCell>
-
-                <!-- Similarity Search -->
                 <mxCell id="c-search" value="Similarity&#xa;Search" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8EAF6;strokeColor=#283593;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#283593;shadow=1;verticalAlign=middle;" parent="1" vertex="1">
                     <mxGeometry x="750" y="370" width="150" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-search-desc" value="Find top-K most similar&#xa;chunks by vector distance" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;fontColor=#546E7A;" parent="1" vertex="1">
                     <mxGeometry x="750" y="450" width="150" height="30" as="geometry"/>
                 </mxCell>
-
-                <!-- Reranker -->
                 <mxCell id="c-rerank" value="Reranker&#xa;(optional)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8EAF6;strokeColor=#283593;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#283593;shadow=1;verticalAlign=middle;" parent="1" vertex="1">
                     <mxGeometry x="530" y="370" width="150" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-rerank-desc" value="Cross-encoder rescoring&#xa;for precision" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;fontColor=#546E7A;" parent="1" vertex="1">
                     <mxGeometry x="530" y="450" width="150" height="30" as="geometry"/>
                 </mxCell>
-
-                <!-- Context Assembly -->
                 <mxCell id="c-context" value="Context&#xa;Assembly" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#1565C0;shadow=1;verticalAlign=middle;" parent="1" vertex="1">
                     <mxGeometry x="530" y="530" width="150" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-context-desc" value="Build prompt with retrieved&#xa;context + user question" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;fontColor=#546E7A;" parent="1" vertex="1">
                     <mxGeometry x="530" y="610" width="150" height="30" as="geometry"/>
                 </mxCell>
-
-                <!-- LLM -->
                 <mxCell id="c-llm" value="Large Language&#xa;Model (LLM)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#6A1B9A;shadow=1;verticalAlign=middle;" parent="1" vertex="1">
                     <mxGeometry x="750" y="530" width="170" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-llm-desc" value="Generate answer grounded&#xa;in retrieved evidence" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;fontColor=#546E7A;" parent="1" vertex="1">
                     <mxGeometry x="755" y="610" width="160" height="30" as="geometry"/>
                 </mxCell>
-
-                <!-- Response -->
                 <mxCell id="c-response" value="Grounded&#xa;Response" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#2E7D32;shadow=1;verticalAlign=middle;" parent="1" vertex="1">
                     <mxGeometry x="1000" y="530" width="160" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-response-desc" value="Answer with citations&#xa;from source documents" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=9;fontColor=#546E7A;" parent="1" vertex="1">
                     <mxGeometry x="1005" y="610" width="150" height="30" as="geometry"/>
                 </mxCell>
-
-                <!-- ═══════════════════════════════════════ -->
-                <!-- QUERY PIPELINE CONNECTIONS -->
-                <!-- ═══════════════════════════════════════ -->
-
-                <!-- User -> Query Embedding -->
                 <mxCell id="c-qe1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1565C0;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="c-user" target="c-embed-query" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-qe1-label" value="question" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=9;fontColor=#1565C0;labelBackgroundColor=#FFFFFF;" parent="c-qe1" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+                    <mxGeometry x="-0.1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
                 </mxCell>
-
-                <!-- Query Embedding -> Similarity Search -->
                 <mxCell id="c-qe2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#283593;strokeWidth=2;exitX=1;exitY=0.25;entryX=0;entryY=0.5;" parent="1" source="c-embed-query" target="c-search" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
@@ -730,34 +680,34 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="c-qe2-label" value="query vector" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=9;fontColor=#283593;labelBackgroundColor=#FFFFFF;" parent="c-qe2" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+                    <mxGeometry x="-0.1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
                 </mxCell>
-
-                <!-- Vector Store -> Similarity Search -->
                 <mxCell id="c-qe3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#33691E;strokeWidth=2;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" parent="1" source="c-vectorstore-query" target="c-search" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-qe3-label" value="indexed vectors" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=9;fontColor=#33691E;labelBackgroundColor=#FFFFFF;" parent="c-qe3" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+                    <mxGeometry x="-0.1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
                 </mxCell>
-
-                <!-- Similarity Search -> Reranker -->
                 <mxCell id="c-qe4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#283593;strokeWidth=2;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" parent="1" source="c-search" target="c-rerank" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-qe4-label" value="candidate chunks" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=9;fontColor=#283593;labelBackgroundColor=#FFFFFF;" parent="c-qe4" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+                    <mxGeometry x="-0.1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
                 </mxCell>
-
-                <!-- Reranker -> Context Assembly -->
                 <mxCell id="c-qe5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1565C0;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="c-rerank" target="c-context" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-qe5-label" value="top-K relevant chunks" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=9;fontColor=#1565C0;labelBackgroundColor=#FFFFFF;" parent="c-qe5" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+                    <mxGeometry x="-0.1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
                 </mxCell>
-
-                <!-- User question also feeds Context Assembly -->
                 <mxCell id="c-qe6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1565C0;strokeWidth=1.5;dashed=1;exitX=0.5;exitY=1;entryX=0;entryY=0.75;" parent="1" source="c-embed-query" target="c-context" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
@@ -766,35 +716,29 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="c-qe6-label" value="original question" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=9;fontColor=#1565C0;labelBackgroundColor=#FFFFFF;" parent="c-qe6" vertex="1" connectable="0">
-                    <mxGeometry x="0.2" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+                    <mxGeometry x="0.2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
                 </mxCell>
-
-                <!-- Context Assembly -> LLM -->
                 <mxCell id="c-qe7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6A1B9A;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="c-context" target="c-llm" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-qe7-label" value="augmented prompt" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=9;fontColor=#6A1B9A;labelBackgroundColor=#FFFFFF;" parent="c-qe7" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+                    <mxGeometry x="-0.1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
                 </mxCell>
-
-                <!-- LLM -> Response -->
                 <mxCell id="c-qe8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2E7D32;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="c-llm" target="c-response" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="c-qe8-label" value="generated answer" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=9;fontColor=#2E7D32;labelBackgroundColor=#FFFFFF;" parent="c-qe8" vertex="1" connectable="0">
-                    <mxGeometry x="-0.1" relative="1" as="geometry"><mxPoint as="offset"/></mxGeometry>
+                    <mxGeometry x="-0.1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
                 </mxCell>
-
-                <!-- ═══════════════════════════════════════ -->
-                <!-- KEY INSIGHT CALLOUT -->
-                <!-- ═══════════════════════════════════════ -->
                 <mxCell id="c-callout" value="&lt;b&gt;Why RAG?&lt;/b&gt;&lt;br&gt;LLMs have fixed training data. RAG augments them with &lt;i&gt;up-to-date, domain-specific&lt;/i&gt; knowledge&lt;br&gt;retrieved at query time — reducing hallucinations and enabling citation of sources." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#BDBDBD;strokeWidth=1;fontSize=10;fontColor=#424242;align=left;spacingLeft=10;spacingRight=10;verticalAlign=middle;arcSize=8;" parent="1" vertex="1">
                     <mxGeometry x="60" y="680" width="500" height="60" as="geometry"/>
                 </mxCell>
-
-                <!-- ═══════════════════════════════════════ -->
-                <!-- LEGEND -->
-                <!-- ═══════════════════════════════════════ -->
                 <mxCell id="c-legend-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#BDBDBD;strokeWidth=1;arcSize=6;" parent="1" vertex="1">
                     <mxGeometry x="60" y="760" width="700" height="50" as="geometry"/>
                 </mxCell>
@@ -831,7 +775,6 @@
                 <mxCell id="c-legend-cylinder-t" value="Storage" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];fontSize=9;fontColor=#546E7A;" parent="1" vertex="1">
                     <mxGeometry x="700" y="773" width="50" height="20" as="geometry"/>
                 </mxCell>
-
             </root>
         </mxGraphModel>
     </diagram>

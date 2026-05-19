@@ -4,7 +4,7 @@ networks:
 
 services:
   python:
-    image: docker.io/rkrispin/python-dev-rag-docker:0.0.2
+    image: docker.io/rkrispin/python-dev-rag-docker:0.0.3
     volumes:
       - .:/workspace:cached
       - ${HF_HOME:-~/.cache/huggingface}:/root/.cache/huggingface
@@ -25,14 +25,14 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - ${CHROMA_DATA_PATH:-./chroma_data}:/chroma/chroma
+      - ${CHROMA_DATA_PATH:-./chroma_data}:/data
     environment:
       - ANONYMIZED_TELEMETRY=false
     networks:
       - rag-docker
 
   phoenix:
-    image: arizephoenix/phoenix:4.6.0
+    image: arizephoenix/phoenix:15.10.1
     profiles:
       - observability
     ports:
